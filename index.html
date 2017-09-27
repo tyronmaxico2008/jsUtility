@@ -20,6 +20,7 @@
         <script src="ngTest/ngTest.js"></script>        
     </head>
     <body ng-app="myApp" ng-controller="CustomerList">
+        <grd-filter grd="grd"></grd-filter>
         <table class="table">
             <thead>
                 <tr>
@@ -34,5 +35,6 @@
                 </tr>
             </tbody>
         </table>
+        <pager grd="grd" />
     </body>
 </html>
