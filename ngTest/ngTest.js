@@ -5,7 +5,7 @@ var appConfig = new clsAppConfig();
 
 appConfig.appName = "ap_mlm";
 appConfig.controllerLink = "http://localhost/web_test/Service/";
-appConfig.viewLink = "http://localhost/Assets/admin/ngUtility2/views/";
+appConfig.viewLink = "ng/resources/views/";
 appConfig.appResourceLink = "http://localhost/web_test/service/appContent?path="
 
 myApp.value('appConfig', appConfig);
