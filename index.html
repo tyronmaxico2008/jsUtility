@@ -1,0 +1,33 @@
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>Application  ng test</title>
+        <link href="miniassets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="miniassets/bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        
+        <script src="miniassets/jquery-1.11.0.min.js"></script>
+        
+        
+        <script src="miniassets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="miniassets/angular.min.1.6.js"></script>
+        <script src="build/ngBll.js"></script>
+        
+        <script type="text/javascript">
+            myApp  = angular.module("myApp",['appBll']);
+            
+            myApp.controller("test",function($scope,appConfig){
+                $scope.count = 120
+            });
+        </script>
+        
+    </head>
+    <body ng-app="myApp" ng-controller="test">
+        {{count}}
+    </body>
+</html>
