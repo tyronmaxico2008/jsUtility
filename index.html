@@ -17,17 +17,22 @@
         <script src="miniassets/bootstrap/js/bootstrap.min.js"></script>
         <script src="miniassets/angular.min.1.6.js"></script>
         <script src="build/ngBll.js"></script>
-        
-        <script type="text/javascript">
-            myApp  = angular.module("myApp",['appBll']);
-            
-            myApp.controller("test",function($scope,appConfig){
-                $scope.count = 120
-            });
-        </script>
-        
+        <script src="ngTest/ngTest.js"></script>        
     </head>
-    <body ng-app="myApp" ng-controller="test">
-        {{count}}
+    <body ng-app="myApp" ng-controller="CustomerList">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="r in grd.rows">
+                    <td>
+                        <span ng-bind="r.customerName"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
