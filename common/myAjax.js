@@ -1,1 +1,70 @@
+<<<<<<< HEAD
 alert('hi my ajax')
+=======
+
+//"http://localhost/web_test/test/test_post"
+
+function clsMyAjax(sUrl) {
+    var xhr = new XMLHttpRequest();
+    
+    var self = this;
+
+    xhr.upload.addEventListener("progress", function(evt){
+      if (evt.lengthComputable) {
+        //console.log("add upload event-listener" + evt.loaded + "/" + evt.total);
+        var iPer = (evt.loaded * 100 ) / evt.total;
+        self.onProgress(iPer);
+      }
+    }, false);
+    
+    /*
+    xhr.onprogress = function (e) {
+        debugger;
+        if (e.lengthComputable) {
+            console.log(e.loaded+  " / " + e.total)
+        }
+    }
+    */
+    this.onProgress = function(per){
+        console.log(per);
+    }
+    xhr.onloadstart = function (e) {
+        console.log("start")
+    }
+    xhr.onloadend = function (e) {
+        debugger;
+        console.log("end")
+    } 
+    
+    
+    var file = document.getElementById("txtFile");
+    //var fileData = ;
+    
+    this.send = function(sType,data){
+        xhr.open(sType, sUrl);
+        xhr.send(data);
+    }
+
+    
+    this.post = function(oData,callBack){
+        self.send("POST",oData);
+    }
+    
+}
+
+function test_myAjax() {
+    
+    var oAjax = new clsMyAjax("http://localhost/web_test/test/test_post");
+
+    oAjax.onProgress = function(iPer){
+        //console.log(iPer);
+        document.getElementById("lblResult").innerText = Math.round(iPer) + " %";
+    }
+
+    var file = document.getElementById("txtFile");
+    var frm = new FormData();
+    frm.append("file1",file.files[0]);
+
+    oAjax.post(frm);
+}
+>>>>>>> b871b116f5c6230e1779bb4602dec3700d60d201
