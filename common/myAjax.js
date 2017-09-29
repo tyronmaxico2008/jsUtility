@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+alert('hi my ajax')
+=======
 
 //"http://localhost/web_test/test/test_post"
 
@@ -64,3 +67,4 @@ function test_myAjax() {
 
     oAjax.post(frm);
 }
+>>>>>>> b871b116f5c6230e1779bb4602dec3700d60d201
