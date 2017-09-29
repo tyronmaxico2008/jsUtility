@@ -1,1 +1,1 @@
-alert("hi amit1")
+alert("hi")
