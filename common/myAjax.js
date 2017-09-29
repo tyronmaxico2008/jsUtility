@@ -3,13 +3,13 @@
 
 function clsMyAjax(sUrl) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", );
+    
     var self = this;
 
     xhr.upload.addEventListener("progress", function(evt){
       if (evt.lengthComputable) {
         //console.log("add upload event-listener" + evt.loaded + "/" + evt.total);
-        var iPer = (eve.loaded * 100 ) / evt.total;
+        var iPer = (evt.loaded * 100 ) / evt.total;
         self.onProgress(iPer);
       }
     }, false);
@@ -37,13 +37,30 @@ function clsMyAjax(sUrl) {
     var file = document.getElementById("txtFile");
     //var fileData = ;
     
-    var frm = new FormData();
-    frm.append("file1",file.files[0]);
+    this.send = function(sType,data){
+        xhr.open(sType, sUrl);
+        xhr.send(data);
+    }
+
     
-    xhr.send(frm);
+    this.post = function(oData,callBack){
+        self.send("POST",oData);
+    }
+    
 }
 
 function test_myAjax() {
     
-    
+    var oAjax = new clsMyAjax("http://localhost/web_test/test/test_post");
+
+    oAjax.onProgress = function(iPer){
+        //console.log(iPer);
+        document.getElementById("lblResult").innerText = Math.round(iPer) + " %";
+    }
+
+    var file = document.getElementById("txtFile");
+    var frm = new FormData();
+    frm.append("file1",file.files[0]);
+
+    oAjax.post(frm);
 }
