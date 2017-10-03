@@ -1,4 +1,4 @@
-123
+123456
 //"http://localhost/web_test/test/test_post"
 
 function clsMyAjax(sUrl) {
