@@ -1,4 +1,4 @@
-123456
+
 //"http://localhost/web_test/test/test_post"
 
 function clsMyAjax(sUrl) {
@@ -47,20 +47,4 @@ function clsMyAjax(sUrl) {
         self.send("POST",oData);
     }
     
-}
-
-function test_myAjax() {
-    
-    var oAjax = new clsMyAjax("http://localhost/web_test/test/test_post");
-
-    oAjax.onProgress = function(iPer){
-        //console.log(iPer);
-        document.getElementById("lblResult").innerText = Math.round(iPer) + " %";
-    }
-
-    var file = document.getElementById("txtFile");
-    var frm = new FormData();
-    frm.append("file1",file.files[0]);
-
-    oAjax.post(frm);
 }

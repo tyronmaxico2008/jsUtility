@@ -3,10 +3,22 @@
         <title>Ajax Upload</title>
         <script src="common/myAjax.js"></script>
         <script>
-            function test(){
-                clsMyAjax();    
+            
+            function test_myAjax() {
+                var oAjax = new clsMyAjax("/web_test/test/test_post");
+                oAjax.onProgress = function(iPer){
+                    //console.log(iPer);
+                    document.getElementById("lblResult").innerText = Math.round(iPer) + " %";
+                }
+
+                var file = document.getElementById("txtFile");
+                var frm = new FormData();
+                frm.append("file1",file.files[0]);
+
+                oAjax.post(frm);
             }
         </script>
+        
     </head>
     <body>
         <h1>Ajax upload with progress : </h1>        
