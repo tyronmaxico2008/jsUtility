@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 			src : [
 					'common\\global.js'
 				   ,'common\\clsAjaxProcessing.js' 
+                    , 'common\\myAjax.js'
 			]
 			, dest : '.\\..\\jsDemo\\build\\common.js' 
 		}
