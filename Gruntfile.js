@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 grunt.loadNpmTasks('grunt-contrib-concat');
 
 grunt.initConfig({
+    
     concat : {
         options : {
             seprator : ' ' 
@@ -11,7 +12,7 @@ grunt.initConfig({
                 'common\\global.js'
                ,'common\\clsAjaxProcessing.js' 
         ]
-        ,dest : 'build\\common.js' 
+        ,dest : '..\\jsDemo\\build\\common.js' 
     }
 	, ng : { 
         
@@ -31,7 +32,7 @@ grunt.initConfig({
                ,'ng\\directives\\file-model.js'
                ,'ng\\commonControllers\\CRUDControllers.js'
               ] 
-	     ,dest : 'build\\ngBll.js'
+	     ,dest :  '..\\jsDemo\\build\\ngBll.js' 
 	   }
        ,vue : {
            src : [
@@ -42,13 +43,13 @@ grunt.initConfig({
                 ,'assets\\admin\\vueUtility\\clsFilterField.js'
                 ,'assets\\admin\\vueUtility\\components.js'
            ]
-           , dest : "assets\\admin\\vueBll.js"
+           , dest : '..\\jsDemo\\build\\vueBll.js"
         }
 	}
 });
 
-
 grunt.registerTask('ng',  ['concat:common','concat:ng']);
 grunt.registerTask('vue', ['concat:common','concat:vue']);
-
+grunt.registerTask('all', ['concat:common','concat:ng','concat:vue']);
+    
 }
