@@ -14,7 +14,7 @@ common = {
 ng = {
     "out" : ".\\..\\jsDemo\\build\\ngBll.js"
     ,"input" : [
-        'build\\common.js'
+        '.\\..\\jsDemo\\build\\common.js'
         ,'ng\\ngCommon.js'
         ,'ng\\clsAppConfig.js'
         ,'ng\\bll.js'
@@ -34,26 +34,16 @@ ng = {
 vue  = {
     "out" : ".\\..\\jsDemo\\build\\vueBll.js"
     ,"input" : [
-        'assets\\admin\\common.js'
-        ,'assets\\admin\\vueUtility\\clsConfig.js'
-        ,'assets\\admin\\vueUtility\\Common.js'
-        ,'assets\\admin\\vueUtility\\Grid.js'
-        ,'assets\\admin\\vueUtility\\clsFilterField.js'
-        ,'assets\\admin\\vueUtility\\components.js'
+        '.\\..\\jsDemo\\build\\common.js'
+        ,'vue\\clsConfig.js'
+        ,'vue\\Common.js'
+        ,'vue\\Grid.js'
+        ,'vue\\clsFilterField.js'
+        ,'vue\\components.js'
     ]
 }
 
-
-
-
-def test():
-    if len(sys.argv) == 2:
-        task.join_files(config)
-    else:
-        print("no argument found !")
-
-
-print (len(sys.argv))
+task.join_files(common,ng,vue)
 
 
 
