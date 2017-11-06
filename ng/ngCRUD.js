@@ -1,7 +1,6 @@
 
 function ngGrid(bll, sGetPath) {
 
-
     var grid = this;
 
     grid.getPath = sGetPath;
