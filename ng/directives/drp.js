@@ -6,11 +6,9 @@ appBll.directive("drp", function (bll) {
         , replace:true
         , scope: { data: "=", displayMember: "@", valueMember: "@", myModel: "=" }
         , controller: function ($scope) {
-
             $scope.grd = null;
-
             if (angular.isString($scope.data)) {
-                var _grd = new ngCRUD(bll, "drp\\" + $scope.data, "", "", $scope.value);
+                var _grd = new ngCRUD(bll, $scope.data, "", "", $scope.value);
                 $scope.grd = _grd;
                 _grd.loadAll();
             }
