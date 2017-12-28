@@ -93,5 +93,4 @@ function clsGrid(bll) {
     this.rows = [];
     this.filter = {};
     
-    
 }

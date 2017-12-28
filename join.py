@@ -1,5 +1,7 @@
+import shutil
 import sys
 from aj import task
+
 
 common = {
     "out" : ".\\..\\jsDemo\\build\\common.js"
@@ -16,9 +18,10 @@ ng = {
     ,"input" : [
         '.\\..\\jsDemo\\build\\common.js'
         ,'ng\\ngCommon.js'
-        ,'ng\\clsAppConfig.js'
+        ,'app\\clsAppConfig.js'
+        ,'app\\clsRequest.js'
         ,'ng\\bll.js'
-        ,'ng\\ngCRUD.js'
+        ,'app\\clsCRUD.js'
         ,'ng\\directives\\pager.js'
         ,'ng\\directives\\sorter.js'
         ,'ng\\directives\\busy.js'
@@ -44,6 +47,15 @@ vue  = {
 }
 
 task.join_files(common,ng,vue)
+
+
+shutil.copyfile(".\\..\\jsDemo\\build\\common.js","D:\\current\\appService\\web\\my-build\\common.js")
+shutil.copyfile(".\\..\\jsDemo\\build\\ngBll.js","D:\\current\\appService\\web\\my-build\\ngBll.js")
+shutil.copyfile(".\\..\\jsDemo\\build\\vueBll.js","D:\\current\\appService\\web\\my-build\\vueBll.js")
+
+shutil.copyfile
+
+
 
 print("DOne..........!")
 

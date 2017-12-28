@@ -1,6 +1,7 @@
+//Abc
 
 function clsAppConfig() {
-
+    
     this.appName = "";
     this.controllerLink = "";
     this.assetsLink = "";
@@ -21,7 +22,6 @@ function clsAppConfig() {
         sLink += "&start=" + start;
         return sLink;
     }
-    
 
     this.getUpdateLink = function (sPath) {
         return this.controllerLink + "UpdateModule?appName=" + this.appName + "&path=" + sPath;
@@ -35,3 +35,4 @@ function clsAppConfig() {
         return this.controllerLink + "downloadSQLReport";
     }
 }
+
