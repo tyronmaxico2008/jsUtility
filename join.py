@@ -13,6 +13,7 @@ common = {
     ]
 }
 
+
 ng = {
     "out" : ".\\..\\jsDemo\\build\\ngBll.js"
     ,"input" : [
@@ -37,27 +38,26 @@ ng = {
 vue  = {
     "out" : ".\\..\\jsDemo\\build\\vueBll.js"
     ,"input" : [
-        '.\\..\\jsDemo\\build\\common.js'
-        ,'vue\\clsConfig.js'
+         '.\\..\\jsDemo\\build\\common.js'
         ,'vue\\Common.js'
-        ,'vue\\Grid.js'
-        ,'vue\\clsFilterField.js'
+        ,'app\\clsAppConfig.js'
+        ,'app\\clsRequest.js'
+        ,'app\\clsCRUD.js'
         ,'vue\\components.js'
+        ,'vue\\clsFilterField.js'
+
     ]
 }
 
 task.join_files(common,ng,vue)
 
+print("Concat completed !")
+
+
+###################
 
 shutil.copyfile(".\\..\\jsDemo\\build\\common.js","D:\\current\\appService\\web\\my-build\\common.js")
 shutil.copyfile(".\\..\\jsDemo\\build\\ngBll.js","D:\\current\\appService\\web\\my-build\\ngBll.js")
 shutil.copyfile(".\\..\\jsDemo\\build\\vueBll.js","D:\\current\\appService\\web\\my-build\\vueBll.js")
 
-shutil.copyfile
-
-
-
-print("DOne..........!")
-
-
-
+print("file moved !")

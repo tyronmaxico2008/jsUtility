@@ -26,6 +26,7 @@ function ngGrid(bll, sGetPath) {
     grid.addAfterLoad = function (fn) {
         grid.afterLoad.push(fn);
     }
+    
 
     grid.addPostJson = function (fn) {
         grid.postJson.push(fn);

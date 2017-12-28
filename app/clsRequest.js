@@ -1,38 +1,66 @@
 function clsRequest($http,appConfig) {
 
     this.getData = function (sPath, callBack) {
-        
         var sPathFull = appConfig.getDataLink(sPath);
-        
-        $http.get(sPathFull).success(function (data, status) {
-            callBack(data.Obj)
-        }).error(function (data, status) {
-            
-        });
+
+        if($http)
+        {
+            $http.get(sPathFull).success(function (data, status) {
+                callBack(data.Obj)
+            }).error(function (data, status) {
+
+            });
+        }
     };    
     
     this.submitForm =  function ( fields, uploadUrl, callback) {
+
         
-        var fd = new FormData();
+        if($http)
+        {
+            var fd = new FormData();
+            for (var f in fields) {
+                if (fields[f] != null && fields[f] != undefined)
+                    fd.append(f, fields[f]);
+            }
+            
+            var _fnSuccess = function(res){
+                if (callback != undefined) callback(res.data,"success");
+            };
+            
+            var _fnError = function(){
+                if (callback != undefined) callback(null,"error");
+            };
         
-        for (var f in fields) {
-            if (fields[f] != null && fields[f] != undefined)
-                fd.append(f, fields[f]);
+            $http.post(uploadUrl, fd, {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            }).then(_fnSuccess,_fnError);
+        }
+        else    
+        {
+            $.post(uploadUrl,fields,function(data,status){
+                if(status == "success") 
+                    callback(data,"success");
+                else 
+                    callback(null,"error");
+            });
         }
         
-
-        var _fnSuccess = function(res){
-            if (callback != undefined) callback(res.data,"success");
-        }
-        var _fnError = function(){
-            if (callback != undefined) callback(null,"error");
-        };
-
-        $http.post(uploadUrl, fd, {
-            transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
-        }).then(_fnSuccess,_fnError);
     };
+    
+    
+    this.execJson = function (sPath, jnData, func,e) {
+        var oAjaxProcess = new clsAjaxProcessing(e);
+        oAjaxProcess.start();
+
+        var _url = appConfig.getDataLink(sPath);
+
+        this.submitForm(jnData,_url,function (data){
+            func(data)
+            oAjaxProcess.end();
+        });
+    }
     
     this.execGrid = function (sPath, pageSize, start, length, jnData, func, e) {
         

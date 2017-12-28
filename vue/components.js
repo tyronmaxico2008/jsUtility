@@ -40,8 +40,6 @@ Vue.component("busy",{
 });
 
 /*
-
-
 addVueControl("pager","pager.html",function(){
     return {
         data : function(){
